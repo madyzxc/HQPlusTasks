@@ -6,7 +6,7 @@ namespace WebExtraction
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            HTMLParser parser = new HTMLParser();
         }
     }
 }
