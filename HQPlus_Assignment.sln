@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebExtraction", "WebExtract
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebExtractionTest", "WebExtractionTest\WebExtractionTest.csproj", "{B96A2AE5-A235-4233-9382-00A87CB0A7F5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task1", "Task1", "{26C2C872-EBE3-429A-9986-B2BE1136E5BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,5 +29,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C57FDAE0-64F8-490D-B1B2-7A9465C497F8}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4FDC65B4-C58C-4DCB-ACEB-6C511B97E6CF} = {26C2C872-EBE3-429A-9986-B2BE1136E5BF}
+		{B96A2AE5-A235-4233-9382-00A87CB0A7F5} = {26C2C872-EBE3-429A-9986-B2BE1136E5BF}
 	EndGlobalSection
 EndGlobal

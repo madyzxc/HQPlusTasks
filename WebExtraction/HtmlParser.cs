@@ -1,6 +1,6 @@
 ﻿namespace WebExtraction
 {
-    internal class HTMLParser
+    internal class HtmlParser
     {
     }
 }
