@@ -11,8 +11,16 @@ namespace WebExtraction
             var web = new HtmlWeb();
             var document = web.Load(url);
             var titleNode = document.DocumentNode.SelectSingleNode("//h2[@class='hp__hotel-name']");
+            var addressNode = document.DocumentNode.SelectSingleNode("//p[@id='showMap2']/span");
+            var reviewPointsNode = document.DocumentNode.SelectSingleNode("//div[@class='bui-review-score__badge']");
+            var numberOfReviewsNode = document.DocumentNode.SelectSingleNode("//div[@class='bui-review-score__text']");
+            var descriptionNode = document.DocumentNode.SelectSingleNode("//div[@id='property_description_content']");
             var starsNode = document.DocumentNode.SelectSingleNode("//span[@class='bui-rating bui-rating--smaller']");
-            Console.WriteLine(titleNode.GetDirectInnerText());
+            Console.WriteLine(titleNode.GetDirectInnerText().Trim());
+            Console.WriteLine(addressNode.GetDirectInnerText().Trim());
+            Console.WriteLine(reviewPointsNode.GetDirectInnerText().Trim());
+            Console.WriteLine(numberOfReviewsNode.GetDirectInnerText().Trim());
+            Console.WriteLine(descriptionNode.InnerText.Trim());
             Console.WriteLine(starsNode.Attributes["aria-label"].Value);
             Console.ReadLine();
         }
