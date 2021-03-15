@@ -25,7 +25,7 @@ namespace WebExtraction
             var web = new HtmlWeb();
             _document = web.Load(url);
         }
-        public Hotel ScrapeData()
+        public Hotel ScrapeHotelData()
         {
             var hotel = new Hotel();
             hotel.Name = GetHotelTitle(TitleXpath);

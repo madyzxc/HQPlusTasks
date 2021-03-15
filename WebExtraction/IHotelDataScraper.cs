@@ -4,6 +4,6 @@ namespace WebExtraction
 {
     public interface IHotelDataScraper
     {
-        Hotel ScrapeData();
+        Hotel ScrapeHotelData();
     }
 }

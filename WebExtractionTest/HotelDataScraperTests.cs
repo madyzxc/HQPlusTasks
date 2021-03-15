@@ -15,34 +15,31 @@ namespace WebExtractionTest
         public void SetUp()
         {
             _scraper = new HotelDataScraper(Url);
-            _actualHotel = _scraper.ScrapeData();
+            _actualHotel = _scraper.ScrapeHotelData();
         }
         
         [Test]
         public void ScrapeData_WhenCalled_ReturnsCorrectHotelTitle()
         {
-            Assert.AreEqual("Hotel Bristol Berlin",_actualHotel.Name);
+            Assert.That(_actualHotel.Name,Is.EqualTo("Hotel Bristol Berlin"));
         }
         
         [Test]
         public void ScrapeData_WhenCalled_ReturnsCorrectHotelAddress()
         {
-            Assert.AreEqual("Kurfürstendamm 27, Charlottenburg-Wilmersdorf, 10719 Berlin, Germany",_actualHotel.Address);
+            Assert.That(_actualHotel.Address,Is.EqualTo("Kurfürstendamm 27, Charlottenburg-Wilmersdorf, 10719 Berlin, Germany"));
         }
         
         [Test]
         public void ScrapeData_WhenCalled_ReturnsCorrectReviewPoints()
         {
-            Assert.AreEqual(8.3f,_actualHotel.ReviewPoints);
+            Assert.That(_actualHotel.ReviewPoints,Is.EqualTo(8.3f));
         }
         
         [Test]
         public void ScrapeData_WhenCalled_ReturnsCorrectNumberOfReviews()
         {
-            Assert.AreEqual(3558,_actualHotel.NumberOfReviews);
+            Assert.That(_actualHotel.NumberOfReviews,Is.EqualTo(3558));
         }
-        
-        
-        
     }
 }
