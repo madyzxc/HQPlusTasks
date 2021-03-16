@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task1", "Task1", "{26C2C872
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task2", "Task2", "{4A81778C-3424-422A-993C-31319794DBB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportGenerator", "ReportGenerator\ReportGenerator.csproj", "{8D938C90-D0E0-4565-A083-FB4AA0877BB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{B96A2AE5-A235-4233-9382-00A87CB0A7F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B96A2AE5-A235-4233-9382-00A87CB0A7F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B96A2AE5-A235-4233-9382-00A87CB0A7F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D938C90-D0E0-4565-A083-FB4AA0877BB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D938C90-D0E0-4565-A083-FB4AA0877BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D938C90-D0E0-4565-A083-FB4AA0877BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D938C90-D0E0-4565-A083-FB4AA0877BB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +41,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4FDC65B4-C58C-4DCB-ACEB-6C511B97E6CF} = {26C2C872-EBE3-429A-9986-B2BE1136E5BF}
 		{B96A2AE5-A235-4233-9382-00A87CB0A7F5} = {26C2C872-EBE3-429A-9986-B2BE1136E5BF}
+		{8D938C90-D0E0-4565-A083-FB4AA0877BB9} = {4A81778C-3424-422A-993C-31319794DBB1}
 	EndGlobalSection
 EndGlobal
