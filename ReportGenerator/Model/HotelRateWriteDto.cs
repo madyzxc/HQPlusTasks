@@ -7,7 +7,7 @@ namespace ReportGenerator.Model
     {
         public DateTime ArrivalDate { get; set; }
         public DateTime DepartureDate { get; set; }
-        public int Price { get; set; }
+        public string Price { get; set; }
         public string Currency { get; set; }
         public string RateName { get; set; }
         public int Adults { get; set; }

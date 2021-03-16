@@ -36,7 +36,6 @@ namespace ReportGenerator
             var range = worksheet.Cells["A1"].LoadFromCollection(MapHotelObject(hotelRates), true);
             worksheet.Column(1).Style.Numberformat.Format = "dd-mm-yy";
             worksheet.Column(2).Style.Numberformat.Format = "dd-mm-yy";
-            worksheet.Column(3).Style.Numberformat.Format = "##,#";
             range.AutoFitColumns();
             range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             await package.SaveAsync();
@@ -47,7 +46,7 @@ namespace ReportGenerator
                 {
                     ArrivalDate = hotelRate.TargetDay,
                     DepartureDate = hotelRate.TargetDay.AddDays(hotelRate.Los),
-                    Price = hotelRate.Price.NumericInteger,
+                    Price = hotelRate.Price.NumericInteger.ToString("#-##").Replace("-",","),
                     Currency = hotelRate.Price.Currency,
                     RateName = hotelRate.RateName,
                     Adults = hotelRate.Adults,
