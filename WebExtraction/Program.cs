@@ -4,16 +4,24 @@ namespace WebExtraction
 {
     internal static class Program
     {
+        private const string URL = @"https://www.booking.com/hotel/de/kempinskibristolberlin.en-gb.html";
+        private const string OutputFileName = @"hotel.json";
+
         private static void Main(string[] args)
         {
-            const string url = "https://www.booking.com/hotel/de/kempinskibristolberlin.en-gb.html?dcid=4;label=gen173nr-15CAsoO0IWa2VtcGluc2tpYnJpc3RvbGJlcmxpbkguYgVub3JlZmg7iAEBmAEuuAEEyAEE2AED6AEB;type=total;dist=0;auth_success=1;sb_price_type=total;sid=76794d5ed9a9673c09a746b2d3e1a5bd";
-            IHotelDataScraper scraper = new HotelDataScraper(url);
+            Console.WriteLine($"Extracting Hotel Data from {URL}");
+            IHotelDataScraper scraper = new HotelDataScraper(URL);
             var hotel = scraper.ScrapeHotelData();
+            Console.WriteLine($"Extracting Hotel Data completed");
 
-            const string fileName = "hotel.json";
+            Console.WriteLine();
+
+            Console.WriteLine($"Generating Output JSON File to {Environment.CurrentDirectory}\\{OutputFileName}");
             IHotelDataFileWriter fileWriter = new HotelDataFileWriter();
-            fileWriter.WriteHotelDataToFile(hotel,fileName);
+            fileWriter.WriteHotelDataToFile(hotel, OutputFileName);
+            Console.WriteLine("Writing output file completed");
             
+            Console.WriteLine("Please check output folder and Press enter key to Exit...");
             Console.ReadLine();
         }
     }

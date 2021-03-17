@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -11,12 +11,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Content" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="Content\hotelrates.json" />
-      <Content Include="Content\hotelrates.json" />
+      <None Update="Content\hotelrates.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
