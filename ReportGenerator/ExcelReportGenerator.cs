@@ -17,6 +17,7 @@ namespace ReportGenerator
         {
             _file = new FileInfo(outputFileName);
         }
+
         public void GenerateExcelReport(IEnumerable<HotelRate> hotelRates)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -27,6 +28,7 @@ namespace ReportGenerator
             range.AutoFitColumns();
             package.Save();
         }
+
         public async Task GenerateExcelReportAsync(IEnumerable<HotelRate> hotelRates)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -40,13 +42,14 @@ namespace ReportGenerator
             range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             await package.SaveAsync();
         }
+
         private IEnumerable<HotelRateWriteDto> MapHotelObject(IEnumerable<HotelRate> hotelRates)
         {
             return hotelRates.Select(hotelRate => new HotelRateWriteDto
                 {
                     ArrivalDate = hotelRate.TargetDay,
                     DepartureDate = hotelRate.TargetDay.AddDays(hotelRate.Los),
-                    Price = hotelRate.Price.NumericInteger.ToString("#-##").Replace("-",","),
+                    Price = hotelRate.Price.NumericInteger.ToString("#-##").Replace("-", ","),
                     Currency = hotelRate.Price.Currency,
                     RateName = hotelRate.RateName,
                     Adults = hotelRate.Adults,
@@ -54,9 +57,10 @@ namespace ReportGenerator
                 })
                 .ToList();
         }
+
         private static void DeleteIfExistsFile(FileInfo file)
         {
-            if(file.Exists) file.Delete();
+            if (file.Exists) file.Delete();
         }
     }
 }
