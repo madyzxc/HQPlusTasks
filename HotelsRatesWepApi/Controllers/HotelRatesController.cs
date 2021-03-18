@@ -15,10 +15,6 @@ namespace HotelsRatesWepApi.Controllers
     {
         private readonly ILogger<HotelRatesController> _logger;
 
-        public HotelRatesController()
-        {
-            
-        }
         public HotelRatesController(ILogger<HotelRatesController> logger)
         {
             _logger = logger;

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using HotelsRatesWepApi;
 using HotelsRatesWepApi.Controllers;
 using HotelsRatesWepApi.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.TestHost;
 using NUnit.Framework;
 
 namespace HotelsRatesWepApiTests
@@ -18,12 +20,16 @@ namespace HotelsRatesWepApiTests
         }
 
         [Test]
-        public void Get_NotPassedParameters_ReturnsListOfHotels()
+        public async Task Get_NotPassedParameters_ReturnsListOfHotels()
         {
             var controller = new HotelRatesController();
-            IActionResult actionResult = controller.Get();
-            var contentResult = actionResult as OkObjectResult;
-            Assert.IsNotNull(actionResult);
+            var result = controller.Get() ;
+            var actionResult = result as OkObjectResult;
+            var contentResult = actionResult.Value as IEnumerable<Hotel>;
+            Assert.That(contentResult.Count(), Is.EqualTo(2));
+            var hotelid = (new List<HotelsRatesWepApi.Models.Hotel>(contentResult)[0]).HotelId;
+            Assert.That(hotelid, Is.EqualTo(2));
+
         }
     }
 }
