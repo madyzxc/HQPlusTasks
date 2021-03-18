@@ -39,7 +39,7 @@ namespace WebExtractionTest
         [Test]
         public void ScrapeData_WhenCalled_ReturnsCorrectNumberOfReviews()
         {
-            Assert.That(_actualHotel.NumberOfReviews,Is.EqualTo(3558));
+            Assert.That(_actualHotel.NumberOfReviews,Is.GreaterThan(3550));
         }
     }
 }

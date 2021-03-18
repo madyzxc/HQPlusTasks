@@ -21,7 +21,7 @@ namespace WebExtraction
 
         public HotelDataScraper(string url)
         {
-            if (url == null) throw new ArgumentNullException(nameof(url));
+            if (string.IsNullOrWhiteSpace(url)) throw new ArgumentNullException(nameof(url));
             var web = new HtmlWeb();
             _document = web.Load(url);
         }
@@ -39,7 +39,7 @@ namespace WebExtraction
         }
         private IEnumerable<string> GetRoomCategories(string xpath)
         {
-            if (xpath == null) throw new ArgumentNullException(nameof(xpath));
+            if (string.IsNullOrWhiteSpace(xpath)) throw new ArgumentNullException(nameof(xpath));
             var roomTypeNodes = _document.DocumentNode.SelectNodes(xpath);
             if (roomTypeNodes == null)
             {
@@ -50,6 +50,7 @@ namespace WebExtraction
         }
         private Classification GetHotelClassification(string xpath)
         {
+            if (string.IsNullOrWhiteSpace(xpath)) throw new ArgumentNullException(nameof(xpath)); 
             var starsNode = _document.DocumentNode.SelectSingleNode(xpath);
             if (starsNode == null)
             {
@@ -59,27 +60,32 @@ namespace WebExtraction
         }
         private string GetHotelDescription(string xpath)
         {
+            if (string.IsNullOrWhiteSpace(xpath)) throw new ArgumentNullException(nameof(xpath));
             var descriptionNode = _document.DocumentNode.SelectSingleNode(xpath);
             return descriptionNode.InnerText.Trim();
         }
         private int GetNumberOfReviews(string xpath)
         {
+            if (string.IsNullOrWhiteSpace(xpath)) throw new ArgumentNullException(nameof(xpath));
             var numberOfReviewsNode = _document.DocumentNode.SelectSingleNode(xpath);
             var value = numberOfReviewsNode.InnerText.Trim().Replace(" reviews", "");
             return int.Parse(value, NumberStyles.AllowThousands);
         }
         private float GetHotelReviewPoints(string xpath)
         {
+            if (string.IsNullOrWhiteSpace(xpath)) throw new ArgumentNullException(nameof(xpath));
             var reviewPointsNode = _document.DocumentNode.SelectSingleNode(xpath);
             return float.Parse(reviewPointsNode.InnerText.Trim());
         }
         private string GetHotelAddress(string xpath)
         {
+            if (string.IsNullOrWhiteSpace(xpath)) throw new ArgumentNullException(nameof(xpath));
             var addressNode = _document.DocumentNode.SelectSingleNode(xpath);
             return addressNode.GetDirectInnerText().Trim();
         }
         private string GetHotelTitle(string xpath)
         {
+            if (string.IsNullOrWhiteSpace(xpath)) throw new ArgumentNullException(nameof(xpath));
             var titleNode = _document.DocumentNode.SelectSingleNode(xpath);
             return titleNode.GetDirectInnerText().Trim();
         }

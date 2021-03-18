@@ -8,16 +8,27 @@ namespace WebExtractionTest
     [TestFixture]
     public class HotelDataFileWriterTests
     {
-        [Test]
-        public void WriteHotelDataToFile_PassedEmptyFileName_ThrowsException()
+        private IHotelDataFileWriter _writer;
+        private Hotel _hotel;
+        
+        [SetUp]
+        public void SetUp()
         {
-            IHotelDataFileWriter writer = new HotelDataFileWriter();
-            Hotel hotel = new Hotel()
+            _writer = new HotelDataFileWriter();
+            _hotel = new Hotel()
             {
                 Name = "Test Hotel",
                 Address = "Test Address"
             };
-            Assert.That(()=> writer.WriteHotelDataToFile(hotel,""),Throws.Exception.TypeOf<ArgumentNullException>());
+        }
+
+        [Test]
+        [TestCase(null)]
+        [TestCase("")]
+        [TestCase(" ")]
+        public void WriteHotelDataToFile_PassedWrongFileName_ThrowsException(string wrongFileName)
+        {
+            Assert.That(()=> _writer.WriteHotelDataToFile(_hotel,wrongFileName),Throws.Exception.TypeOf<ArgumentNullException>());
         }
     }
 }
